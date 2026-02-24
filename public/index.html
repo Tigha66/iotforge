@@ -6,12 +6,20 @@
   <title>IoTForge - IoT Operations Helper</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>.glass{background:rgba(255,255,255,0.05);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.1)}.gradient-text{background:linear-gradient(135deg,#10b981,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent}</style>
+  <style>
+    .glass{background:rgba(255,255,255,0.05);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.1)}
+    .gradient-text{background:linear-gradient(135deg,#10b981,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  </style>
 </head>
 <body class="bg-[#0a0a0f] min-h-screen text-white">
   <header class="glass sticky top-0">
     <div class="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
-      <div class="flex items-center gap-4"><div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-cyan-600 flex items-center justify-center shadow-lg"><i class="fas fa-microchip text-2xl"></i></div><div><h1 class="text-2xl font-bold gradient-text">IoTForge</h1><p class="text-xs text-slate-400">Operations Helper</p></div></div>
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-cyan-600 flex items-center justify-center shadow-lg">
+          <i class="fas fa-microchip text-2xl"></i>
+        </div>
+        <div><h1 class="text-2xl font-bold gradient-text">IoTForge</h1><p class="text-xs text-slate-400">Operations Helper</p></div>
+      </div>
     </div>
   </header>
   <main class="max-w-7xl mx-auto px-8 py-10">
@@ -22,18 +30,32 @@
       <div class="glass rounded-2xl p-6"><p class="text-slate-400 text-sm mb-2">Uptime</p><p class="text-4xl font-bold text-emerald-400">99.2%</p></div>
     </div>
     <div class="grid lg:grid-cols-2 gap-8">
-      <div class="glass rounded-2xl p-8"><h2 class="text-xl font-bold mb-6"><i class="fas fa-bell text-yellow-400 mr-3"></i>Active Alerts</h2>
+      <div class="glass rounded-2xl p-8">
+        <h2 class="text-xl font-bold mb-6"><i class="fas fa-bell text-yellow-400 mr-3"></i>Active Alerts</h2>
         <div class="space-y-3">
-          {[{device:'Sensor-A1',issue:'High temperature',time:'5m ago',severity:'Warning'},{device:'Gateway-3',issue:'Connection lost',time:'12m ago',severity:'Critical'},{device:'Meter-B2',issue:'Low battery',time:'1h ago',severity:'Info'}].map(a=>`
-          <div class="bg-white/5 rounded-xl p-4 flex items-center justify-between"><div><p class="font-semibold">${a.device}</p><p class="text-slate-400 text-sm">${a.issue} • ${a.time}</p></div><span class="px-3 py-1 rounded-lg text-xs ${a.severity==='Critical'?'bg-red-500/20 text-red-400':a.severity==='Warning'?'bg-yellow-500/20 text-yellow-400':'bg-blue-500/20 text-blue-400'}">${a.severity}</span></div>
-          `).join('')}
+          <div class="bg-white/5 rounded-xl p-4 flex items-center justify-between">
+            <div><p class="font-semibold">Sensor-A1</p><p class="text-slate-400 text-sm">High temperature • 5m ago</p></div>
+            <span class="px-3 py-1 rounded-lg text-xs bg-yellow-500/20 text-yellow-400">Warning</span>
+          </div>
+          <div class="bg-white/5 rounded-xl p-4 flex items-center justify-between">
+            <div><p class="font-semibold">Gateway-3</p><p class="text-slate-400 text-sm">Connection lost • 12m ago</p></div>
+            <span class="px-3 py-1 rounded-lg text-xs bg-red-500/20 text-red-400">Critical</span>
+          </div>
+          <div class="bg-white/5 rounded-xl p-4 flex items-center justify-between">
+            <div><p class="font-semibold">Meter-B2</p><p class="text-slate-400 text-sm">Low battery • 1h ago</p></div>
+            <span class="px-3 py-1 rounded-lg text-xs bg-blue-500/20 text-blue-400">Info</span>
+          </div>
         </div>
       </div>
-      <div class="glass rounded-2xl p-8"><h2 class="text-xl font-bold mb-6"><i class="fas fa-play-circle text-cyan-400 mr-3"></i>Quick Actions</h2>
+      <div class="glass rounded-2xl p-8">
+        <h2 class="text-xl font-bold mb-6"><i class="fas fa-play-circle text-cyan-400 mr-3"></i>Quick Actions</h2>
         <div class="grid grid-cols-2 gap-4">
-          {['Restart Device','Clear Alert','Run Diagnostics','Update Firmware','View Logs','Export Report'].map(action=>`
-          <button class="bg-white/5 hover:bg-white/10 rounded-xl p-4 text-left transition"><i class="fas fa-bolt text-emerald-400 mr-2"></i>${action}</button>
-          `).join('')}
+          <button class="bg-white/5 hover:bg-white/10 rounded-xl p-4 text-left transition"><i class="fas fa-bolt text-emerald-400 mr-2"></i>Restart Device</button>
+          <button class="bg-white/5 hover:bg-white/10 rounded-xl p-4 text-left transition"><i class="fas fa-bolt text-emerald-400 mr-2"></i>Clear Alert</button>
+          <button class="bg-white/5 hover:bg-white/10 rounded-xl p-4 text-left transition"><i class="fas fa-bolt text-emerald-400 mr-2"></i>Run Diagnostics</button>
+          <button class="bg-white/5 hover:bg-white/10 rounded-xl p-4 text-left transition"><i class="fas fa-bolt text-emerald-400 mr-2"></i>Update Firmware</button>
+          <button class="bg-white/5 hover:bg-white/10 rounded-xl p-4 text-left transition"><i class="fas fa-bolt text-emerald-400 mr-2"></i>View Logs</button>
+          <button class="bg-white/5 hover:bg-white/10 rounded-xl p-4 text-left transition"><i class="fas fa-bolt text-emerald-400 mr-2"></i>Export Report</button>
         </div>
       </div>
     </div>
